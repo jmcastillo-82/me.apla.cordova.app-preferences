@@ -1,12 +1,10 @@
 'use strict';
 
-module.exports = function (context) {
-  var req = context.requireCordovaModule,
+module.exports = function(context) {
+    var path = require('path'),
+        pathParse = require('./lib/path-parse');
 
-      path = req ('path'),
-      pathParse = require ('./lib/path-parse');
+    path.parse = path.parse || pathParse;
 
-  path.parse = path.parse || pathParse;
-
-  return true;
+    return true;
 };
